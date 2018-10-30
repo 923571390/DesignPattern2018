@@ -1,4 +1,4 @@
-package mediator;
+package Mediator;
 
 import Base.Farm;
 import Base.House;

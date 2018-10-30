@@ -1,6 +1,10 @@
 package ChainOfPesponsibility;
 
+import java.util.ArrayList;
+
+import Base.Entity;
 import Base.FarmLand;
+import Plant.Plant;
 
 public class LandHandler extends Handler
 {
@@ -10,7 +14,16 @@ public class LandHandler extends Handler
 	@Override
 	public boolean getFood() {
 		
-		//������Ҫһ����ȡ�����Ƿ��г���ʳ��ķ���
+		 for (Entity plant : this.land.getEntities()) 
+	      {
+	         if(((Plant) plant).mature()==true)
+	         {
+	        	 this.land.removeEntity(plant);
+	        	 System.out.println("Take food from the land");
+	        	 return true;
+	         }
+	      }
+			
 		return false;
 	}
 	

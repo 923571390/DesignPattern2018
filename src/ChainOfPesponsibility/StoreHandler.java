@@ -8,12 +8,12 @@ public class StoreHandler extends Handler
 	public boolean getFood() {
 		if (this.storeHouse.getSum()>0)
 		{
-			 System.out.println("从仓库拿取食物。");
+			 System.out.println("Take food from the storehouse");
 			 this.storeHouse.decrease(1);
 			return true;
 		}
 		
-		return false;//�޷��Ӳֿ��ã���������������
+		return false;
 	}
 	
 	public StoreHandler(StoreHouse storeHouse)
@@ -21,7 +21,5 @@ public class StoreHandler extends Handler
 		super();
 		this.storeHouse=storeHouse;
 	}
-
-
 	
 }

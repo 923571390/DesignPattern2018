@@ -12,10 +12,10 @@ import Base.SuperFarmBuilder;
 import Base.YellowWall;
 import AbAnimalstractFactory.*;
 
-public class Test {
+public class BuilderTest {
 
 	public static void main(String[] args) {
-		Test test = new Test();
+		BuilderTest test = new BuilderTest();
 //		test.testDecorator();
 //		test.testFlyweight();
 		test.testBuilder();

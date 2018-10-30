@@ -1,7 +1,7 @@
 package Base;
 import java.util.ArrayList;
 
-import mediator.Mediator;
+import Mediator.Mediator;
 
 public abstract class ConcreteFacility implements Facility {
 

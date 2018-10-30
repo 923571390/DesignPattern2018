@@ -33,7 +33,7 @@ public class BambooStore extends StoreHouse{
 			{
 				return true;
 			}
-		System.out.println("竹鼠已经没有竹子吃了！");
+		System.out.println("Rhizomyidae have no bamboo to eat.");
 		return false;
 	}
 	 

@@ -18,6 +18,8 @@ public class StoreHouseGuardian extends StoreHouse {
 
 	
 	public void setAlarm() {
+//		System.out.println("The farm is currently on alert.");
+
 		this.alarm = !this.alarm;
 	}
 	
@@ -32,7 +34,7 @@ public class StoreHouseGuardian extends StoreHouse {
 			return store.checkFeedable(land);
 		}
 		else {
-			System.out.println("当前处于警戒状态！不允许检查库存供给量！");
+			System.out.println("The farm is currently on alert! Action not allowed.");
 			return false;
 		}
 		

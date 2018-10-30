@@ -32,7 +32,7 @@ public class GrassStore extends StoreHouse{
 			{
 				return true;
 			}
-			System.out.println("牛已经没有草吃了！");
+			System.out.println("The cow has no grass to eat.");
 			return false;
 	}
 

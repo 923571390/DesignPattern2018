@@ -1,7 +1,7 @@
 package Base;
 
-import mediator.Feeder;
-import mediator.Mediator;
+import Mediator.Feeder;
+import Mediator.Mediator;
 
 public class House<T> extends ConcreteFacility {
 

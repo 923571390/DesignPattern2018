@@ -1,4 +1,6 @@
-package mediator;
+package Mediator;
+
+import java.util.Iterator;
 
 import AbAnimalstractFactory.Animal;
 import Base.Farm;
@@ -19,13 +21,34 @@ public class Feeder extends Mediator{
 	@Override
 	public void feed(House animalhouse, Farm farm) {
 		// TODO Auto-generated method stub
-		StoreHouse storage = whatToEat(animalhouse);//找到动物对应的仓库
+		StoreHouse storage = whatToEat(animalhouse); //找到动物对应的仓库
 		if (storage.getName()=="Bamboo Store") {
-			storage.checkFeedable(farm.getBigFarmLand().getFarmLand("Bamboo Farmland"));//查看仓库里有没有，有就直接喂，没有就去地里……
-
+			System.out.println("Feeding bamboo to rhizomy.");
+			Iterator iter = animalhouse.getEntities().iterator();
+			while(iter.hasNext()) {
+				if (storage.checkFeedable(farm.getBigFarmLand().getFarmLand("Bamboo Farmland"))) {
+					if (!((Animal) iter).isFull()) {
+						((Animal) iter).feed();  //喂食
+					}
+					else {
+						System.out.println("The animal is already full");
+					}
+				}
+			}
 		}
 		else {
-			storage.checkFeedable(farm.getBigFarmLand().getFarmLand("Grass Farmland"));//查看仓库里有没有，有就直接喂，没有就去地里……
+			System.out.println("Feeding grass to cow.");
+			Iterator iter = animalhouse.getEntities().iterator();
+			while(iter.hasNext()) {
+				if (storage.checkFeedable(farm.getBigFarmLand().getFarmLand("Grass Farmland"))) {
+					if (!((Animal) iter).isFull()) {
+						((Animal) iter).feed();  //喂食
+					}
+					else {
+						System.out.println("The animal is already full");
+					}
+				}
+			}
 		}
 	}
 
