@@ -158,12 +158,12 @@ public class TestTotal {
 		//register in prototype
 		FertilizerForPlant.addPrototype(new CommonFertilizer(1));
 		FertilizerForPlant.addPrototype(new AdvancedFertilizer(1));
-		
+				
 		//test prototype
 		FertilizerForPlant f1 = FertilizerForPlant.findAndClone(FertilizerType.COMMON);
 		FertilizerForPlant f2 = FertilizerForPlant.findAndClone(FertilizerType.ADVANCED);
 
-		
+				
 		//test bridge
 		f1.fertilizing(grass);
 		f1.fertilizing(bamboo);
