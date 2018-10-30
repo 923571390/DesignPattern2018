@@ -1,9 +1,9 @@
 package Facade;
 
-import Base.Farm;
-import Base.FarmLand;
-import ChainOfPesponsibility.BambooStore;
-import ChainOfPesponsibility.GrassStore;
+import Building.Farm;
+import Building.FarmLand;
+import StoreHouse.BambooStore;
+import StoreHouse.GrassStore;
 
 public class CountGrassNum implements Statistics{
 	

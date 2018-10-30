@@ -1,8 +1,8 @@
 package Facade;
 
-import Base.Farm;
-import ChainOfPesponsibility.BambooStore;
-import ChainOfPesponsibility.GrassStore;
+import Building.Farm;
+import StoreHouse.BambooStore;
+import StoreHouse.GrassStore;
 
 public class CountBambNum implements Statistics{
 	private int sum = 0;	
@@ -16,7 +16,7 @@ public class CountBambNum implements Statistics{
 		this.sum += banbooStore.getSum();
 		//sum += grassStore.getSum();
 		
-		Base.FarmLand bambooFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
+		Building.FarmLand bambooFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
 		//FarmLand grassFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
 		this.sum += bambooFarm.getEntitiesNum();
 		//sum += grassFarm.getPlantsNum();

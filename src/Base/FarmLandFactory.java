@@ -1,6 +1,8 @@
 package Base;
 import java.util.HashMap;
 
+import Building.FarmLand;
+
 public class FarmLandFactory {
 	private static final HashMap<String, FarmLand> FarmLandMap = new HashMap<>();
 

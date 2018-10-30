@@ -1,8 +1,8 @@
 package Action;
 
-import Base.BigFarmLand;
-import Base.FarmLand;
-import ChainOfPesponsibility.StoreHouse;
+import Building.BigFarmLand;
+import Building.FarmLand;
+import StoreHouse.StoreHouse;
 
 public class WaterAction implements VisitorAction {
 

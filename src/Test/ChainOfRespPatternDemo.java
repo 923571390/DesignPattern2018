@@ -1,12 +1,12 @@
 package Test;
 
-import Base.BigFarmLand;
 import Base.CommonFarmBuilder;
 import Base.Director;
-import Base.Farm;
 import Base.SuperFarmBuilder;
-import ChainOfPesponsibility.BambooStore;
-import ChainOfPesponsibility.GrassStore;
+import Building.BigFarmLand;
+import Building.Farm;
+import StoreHouse.BambooStore;
+import StoreHouse.GrassStore;
 
 public class ChainOfRespPatternDemo 
 {

@@ -1,7 +1,7 @@
 package Test;
-import Base.Adapter220V;
-import Base.ImportedLawnMower;
-import Base.PowerPort220V;
+import LawnMower.Adapter220V;
+import LawnMower.ImportedLawnMower;
+import LawnMower.PowerPort220V;
 
 public class Adapter {
 

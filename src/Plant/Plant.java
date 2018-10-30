@@ -1,6 +1,6 @@
 package Plant;
 import Base.Entity;
-import Base.Farm;
+import Building.Farm;
 import Fertilizer.FertilizerForPlant;
 public abstract class Plant extends Entity {
 	

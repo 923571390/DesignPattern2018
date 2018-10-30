@@ -1,6 +1,6 @@
 package Plant;
 
-import Base.FarmLand;
+import Building.FarmLand;
 
 public abstract class Observer {
 

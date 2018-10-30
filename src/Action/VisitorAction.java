@@ -1,6 +1,6 @@
 package Action;
-import Base.FarmLand;
-import ChainOfPesponsibility.*;
+import Building.FarmLand;
+import StoreHouse.*;
 
 public interface VisitorAction {
 

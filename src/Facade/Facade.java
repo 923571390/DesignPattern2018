@@ -1,6 +1,6 @@
 package Facade;
 
-import Base.Farm;
+import Building.Farm;
 
 public class Facade {
 	

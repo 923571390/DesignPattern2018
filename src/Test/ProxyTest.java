@@ -2,9 +2,9 @@ package Test;
 
 import Base.CommonFarmBuilder;
 import Base.Director;
-import Base.Farm;
 import Base.SuperFarmBuilder;
-import Proxy.StoreHouseGuardian;
+import Building.Farm;
+import SecurityGuard.StoreHouseGuardian;
 
 public class ProxyTest {
 

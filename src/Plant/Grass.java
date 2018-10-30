@@ -1,7 +1,7 @@
 package Plant;
 
-import Base.Farm;
-import Base.FarmLand;
+import Building.Farm;
+import Building.FarmLand;
 import Fertilizer.FertilizerForPlant;
 public class Grass extends Plant{
 

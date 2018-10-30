@@ -1,5 +1,7 @@
 package Base;
 
+import Building.Facility;
+
 public abstract class FacilityDecorator implements Facility {
 
 	protected Facility decoratedFacility;

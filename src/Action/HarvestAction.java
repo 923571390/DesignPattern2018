@@ -2,14 +2,14 @@ package Action;
 
 import java.util.Iterator;
 
-import Base.BigFarmLand;
-import Base.FARMLANDTYPE;
-import Base.FarmLand;
-import ChainOfPesponsibility.BambooStore;
-import ChainOfPesponsibility.GrassStore;
-import ChainOfPesponsibility.StoreHouse;
+import Building.BigFarmLand;
+import Building.FarmLand;
+import Enum.FARMLANDTYPE;
 import Plant.Bamboo;
 import Plant.Plant;
+import StoreHouse.BambooStore;
+import StoreHouse.GrassStore;
+import StoreHouse.StoreHouse;
 
 public class HarvestAction implements VisitorAction {
 

@@ -1,5 +1,7 @@
 package Base;
 
+import Building.Farm;
+
 public abstract class FarmBuilder {
 
 	protected Farm farm;

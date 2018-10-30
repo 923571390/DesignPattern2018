@@ -1,16 +1,16 @@
 package Test;
 
-import Base.BigFarmLand;
+import Animal.*;
 import Base.CommonFarmBuilder;
 import Base.Director;
-import Base.Facility;
-import Base.Farm;
-import Base.FarmLand;
-import Base.Fence;
-import Base.House;
 import Base.SuperFarmBuilder;
-import Base.YellowWall;
-import AbAnimalstractFactory.*;
+import Building.BigFarmLand;
+import Building.Facility;
+import Building.Farm;
+import Building.FarmLand;
+import Building.Fence;
+import Building.House;
+import Building.YellowWall;
 
 public class BuilderTest {
 

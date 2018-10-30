@@ -2,8 +2,8 @@ package Test;
 
 import Base.CommonFarmBuilder;
 import Base.Director;
-import Base.Farm;
 import Base.SuperFarmBuilder;
+import Building.Farm;
 import Facade.Facade;
 
 public class FacadeDemo {

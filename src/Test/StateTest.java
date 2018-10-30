@@ -1,11 +1,11 @@
 package Test;
 
-import AbAnimalstractFactory.Animal;
-import AbAnimalstractFactory.Create;
+import Animal.Animal;
+import Animal.Create;
 import Base.CommonFarmBuilder;
 import Base.Director;
-import Base.Farm;
 import Base.SuperFarmBuilder;
+import Building.Farm;
 
 public class StateTest {
 	public static void main(String[] args) {
