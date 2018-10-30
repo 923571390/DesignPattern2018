@@ -1,11 +1,13 @@
 package Animal;
 
+import Building.Farm;
+
 public class Rhizomy extends Animal{
 	
-	public void create() {
+	public void create(Farm farm) {
 		// TODO Auto-generated method stub
 		System.out.println("获得竹鼠！");
-		//这里要往竹鼠房子里加入一只竹鼠
+		farm.getCowshed().addEntity(this);
 	}
 
 	@Override

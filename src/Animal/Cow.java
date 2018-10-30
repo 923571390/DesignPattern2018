@@ -1,11 +1,13 @@
 package Animal;
 
+import Building.Farm;
+
 public class Cow extends Animal{
 	
-	public void  create() {
+	public void create(Farm farm) {
 		// TODO Auto-generated method stub
 		System.out.println("获得奶牛！");
-		//这里要往奶牛房子里加入一只奶牛
+		farm.getCowshed().addEntity(this);
 	}
 
 	@Override

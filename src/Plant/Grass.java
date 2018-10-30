@@ -77,7 +77,6 @@ public class Grass extends Plant{
 		return isMature;
 	}
     public int group() {
-
 		return 1;
 	}
     

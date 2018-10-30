@@ -13,11 +13,11 @@ public class TestAbstractAnimalFactory {
 		director.construct();
 		Farm commonFarm = commonFarmBuilder.getFarm();
 
-    	Create.cow(); //´´½¨ÄÌÅ£
-    	Create.grass(commonFarm); //´´½¨ÄÁ²Ý
-    	Create.bamboo(commonFarm); //´´½¨Öñ×Ó
-    	Create.rhizomy();  //´´½¨ÖñÊó
+    	Create.cow(commonFarm); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å£
+    	Create.grass(commonFarm); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    	Create.bamboo(commonFarm); //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    	Create.rhizomy(commonFarm);  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     	
 	}
-//public static void main() {TestAbstractAnimalFactory a = null; a.test();}  //²âÊÔÖ÷º¯Êý
+//public static void main() {TestAbstractAnimalFactory a = null; a.test();}  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }

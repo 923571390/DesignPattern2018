@@ -7,6 +7,7 @@ public class House<T> extends ConcreteFacility {
 
 	public House(String name, int capacity) {
 		super(name, capacity);
+		setMediator(new Feeder());
 	}
 
 	@Override
