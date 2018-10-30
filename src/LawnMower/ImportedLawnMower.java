@@ -8,10 +8,10 @@ public class ImportedLawnMower {
 	
 	public void charge110V(int voltage) {
 		if (voltage == 110) {
-			System.out.println("割草机开始工作！");
+			System.out.println("Lawn mower starts working!");
 		}
 		else {
-			System.out.println("当前输入电压不符合割草机所需规格！");
+			System.out.println("The current input voltage does not meet the specifications of the imported lawn mower！");
 		}
 	}
 }

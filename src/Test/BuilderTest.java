@@ -2,8 +2,8 @@ package Test;
 
 import Base.CommonFarmBuilder;
 import Base.Director;
-import Base.Farm;
 import Base.SuperFarmBuilder;
+import Building.Farm;
 
 public class BuilderTest {
 	public static void main(String[] args) {

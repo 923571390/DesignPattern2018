@@ -1,12 +1,31 @@
 package Test;
 
+import java.util.Scanner;
+
+import Animal.Create;
+import Base.CommonFarmBuilder;
+import Base.Director;
+import Base.FarmBuilder;
+import Base.SuperFarmBuilder;
+import Building.Facility;
+import Building.Farm;
+import Building.WhiteWall;
+import Building.YellowWall;
 import Fertilizer.AdvancedFertilizer;
 import Fertilizer.CommonFertilizer;
 import Fertilizer.FertilizerForPlant;
 import Fertilizer.FertilizerType;
+import LawnMower.Adapter220V;
+import LawnMower.ImportedLawnMower;
+import LawnMower.PowerPort220V;
 import Plant.Bamboo;
 import Plant.Grass;
 import Plant.Plant;
+import SecurityGuard.StoreHouseGuardian;
+import Strategy.Purchase;
+import Strategy.PurchaseStrategyA;
+import Strategy.PurchaseStrategyB;
+import Strategy.PurchaseStrategyC;
 import UndoAndRedo.CommandManager;
 import UndoAndRedo.CutCommand;
 import UndoAndRedo.InsertCommand;
@@ -14,6 +33,9 @@ import UndoAndRedo.InsertCommand;
 public class TestTotal {
 
 	public static void main(String[] args) {
+		
+		boolean quit = false;
+		
 		//test builder
 		Scanner input = new Scanner(System.in);
 		int choose;
@@ -80,7 +102,51 @@ public class TestTotal {
 		System.out.println("We regret again.");
 		commandManager.redo();
 		
-		
+		// test Factory Method & Abstract Factory
+		System.out.println("Let's buy some animals and plant now!");
+		while(!quit) {
+			System.out.println("Would you like to buy an animal or a plant? (Type Q to Quit) (A/P/Q)");
+			Scanner in=new Scanner(System.in);
+			String s=in.next();
+			switch(s){
+	    	case "A":
+	    		System.out.println("Would you like to create a cow or a rhizomy? (C/R)");
+	    		String s1=in.next();
+	    		switch(s1){
+	        	case "C":
+	        		if(Create.cow() != null) System.out.println("You have created a cow successfully!");
+	        	    break;
+	        	case "R":
+	        		if(Create.rhizomy() != null) System.out.println("You have created a rhizomy successfully!");
+	        	    break;
+	        	default:
+	        		System.out.println("The option you entered is invalid. Please re-enter it.");
+	        	    break;
+	        	}
+	    	    break;
+	    	case "P":
+	    		System.out.println("Would you like to create a grass or a bamboo? (G/B)");
+	    		String s2=in.next();
+	    		switch(s2){
+	        	case "G":
+	        		if(Create.cow() != null) System.out.println("You have created a grass successfully!");
+	        	    break;
+	        	case "B":
+	        		if(Create.rhizomy() != null) System.out.println("You have created a bamboo successfully!");
+	        	    break;
+	        	default:
+	        		System.out.println("The option you entered is invalid. Please re-enter it.");
+	        	    break;
+	        	}
+	    	    break;
+	    	case "Q":
+	    		quit = true;
+	    		break;
+	    	default:
+	    		System.out.println("The option you entered is invalid. Please re-enter it.");
+	    	    break;
+	    	} 
+		}
 		
 		//have created grass and bamboo
 		Plant bamboo = new Bamboo();
@@ -101,6 +167,25 @@ public class TestTotal {
 		f1.fertilizing(grass);
 		f1.fertilizing(bamboo);
 		f2.fertilizing(bamboo);
+		
+		// test proxy
+		System.out.println("Let's test the security system of our new farm.");
+		StoreHouseGuardian guardian = new StoreHouseGuardian("guardian", 0);
+		guardian.setAlarm();
+				
+		guardian.checkFeedable(farm.getBigFarmLand().getFarmLand("Bamboo Farmland"));
+				
+		// test adapter
+		System.out.println("There are too many weeds on the new farm!");
+				
+		ImportedLawnMower lawnMower = new ImportedLawnMower();
+		PowerPort220V powerport = new PowerPort220V();
+		lawnMower.charge110V(powerport.output220v());
+				
+		System.out.println("Oh! We can not use 220V at all! Let's convert it to 110V!");
+				
+		Adapter220V adapter = new Adapter220V();
+		lawnMower.charge110V((adapter.Convert220vTo110V()));
 		
 		
 
