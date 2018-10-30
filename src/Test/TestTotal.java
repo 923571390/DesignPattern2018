@@ -149,8 +149,9 @@ public class TestTotal {
 		}
 		
 		//have created grass and bamboo
-		Plant bamboo = new Bamboo();
-		Plant grass = new Grass();
+		System.out.println("we plant more.");
+		Plant bamboo = Create.bamboo(farm);
+		Plant grass = Create.grass(farm);
 		
 		//test prototype and bridge
 		System.out.println("We have to fertilize the plant");
