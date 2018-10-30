@@ -16,6 +16,7 @@ import Building.Farm;
 import Building.FarmLand;
 import Building.WhiteWall;
 import Building.YellowWall;
+import Facade.Facade;
 import Fertilizer.AdvancedFertilizer;
 import Fertilizer.CommonFertilizer;
 import Fertilizer.FertilizerForPlant;
@@ -23,6 +24,8 @@ import Fertilizer.FertilizerType;
 import LawnMower.Adapter220V;
 import LawnMower.ImportedLawnMower;
 import LawnMower.PowerPort220V;
+import PersonnelDepartment.Employee;
+import PersonnelDepartment.Intendant;
 import Plant.Bamboo;
 import Plant.Grass;
 import Plant.Plant;
@@ -67,6 +70,15 @@ public class TestTotal {
 		farm = farmBuilder.getFarm();
 		System.out.println("Your farm now have these facilities:");
 		farm.showFacilities();
+		
+		// test composite
+		Intendant host = new Intendant("Host");
+		Intendant managingani = new Intendant("Managing animals");
+		Intendant managingpla = new Intendant("Managing plants");
+		host.add(managingani); 
+		host.add(managingpla);
+		managingani.add(new Employee("Farmer1"));
+		managingpla.add(new Employee("Farmer2"));
 
 		//test decorator
 		System.out.println("\nNow you can decorate the Rhizomys House:\n" + "1.paint the wall white\n"
@@ -190,6 +202,21 @@ public class TestTotal {
 		f1.fertilizing(grass);
 		f1.fertilizing(bamboo);
 		f2.fertilizing(bamboo);
+		
+		// test Facade
+		Facade facade = new Facade();
+		System.out.println("\nYou can check the number of plants:\n"+  "1.check the number of plants"
+				+ "2.check the number of bamboo"+"3.check the number of Grass");
+		choose = input.nextInt();
+		if (choose == 1) {
+			facade.printPlantNum(farm);
+
+		} else if (choose == 2) {
+			facade.printBambNum(farm);
+		}
+		else if (choose == 3) {
+			facade.printGrassNum(farm);
+		}
 		
 		// test Visitor again
 		System.out.println("Now that some crops are ripe, let's harvest them.");

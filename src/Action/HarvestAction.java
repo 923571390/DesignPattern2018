@@ -29,10 +29,10 @@ public class HarvestAction implements VisitorAction {
 		Iterator iter = land.getEntities().iterator();
 		
 		while(iter.hasNext()) {
-			System.out.println("harvest");
+//			System.out.println("harvest");
 			Plant currentPlant = (Plant) iter.next();
 			if (currentPlant.mature()) {
-				land.getEntities().remove(1);
+				iter.remove();
 				// 待改成enum 如果是竹子田地
 				if (land.getName() == "Bamboo Farmland") {
 					BambooStore store = BambooStore.getInstance();
