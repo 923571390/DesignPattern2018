@@ -29,7 +29,8 @@ public class AdvancedFertilizer extends FertilizerForPlant{
 	}
 	@Override
 	public void fertilizing(Plant plant) {
-		System.out.println(plant.getType() + " have used advanced fertilizer.");
+                plant.fertilize();
+		System.out.println(plant.getType() + " have used common fertilizer.");
 	}
 	
 
