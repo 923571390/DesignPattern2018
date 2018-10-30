@@ -14,16 +14,12 @@ public class ProxyTest {
 		guardian.setAlarm();
 		
 		Director director = new Director();
-		SuperFarmBuilder superFarmBuilder = new SuperFarmBuilder();
 		CommonFarmBuilder commonFarmBuilder = new CommonFarmBuilder();
-
-		director.setFarmBuilder(superFarmBuilder);
+		director.setFarmBuilder(commonFarmBuilder);
 		director.construct();
-		Farm superFarm = superFarmBuilder.getFarm();
-		superFarm.showFacilities();
-		System.out.println("");
+		Farm commonFarm = commonFarmBuilder.getFarm();
 		
-		guardian.checkFeedable(superFarm.getBigFarmLand().getFarmLand("Bamboo Farmland"));
+		guardian.checkFeedable(commonFarm.getBigFarmLand().getFarmLand("Bamboo Farmland"));
 		
 	}
 

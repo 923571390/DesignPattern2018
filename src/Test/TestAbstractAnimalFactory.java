@@ -8,20 +8,16 @@ public class TestAbstractAnimalFactory {
 	public static void main(String[] args) {
 		
 		Director director = new Director();
-		SuperFarmBuilder superFarmBuilder = new SuperFarmBuilder();
 		CommonFarmBuilder commonFarmBuilder = new CommonFarmBuilder();
-
-		director.setFarmBuilder(superFarmBuilder);
+		director.setFarmBuilder(commonFarmBuilder);
 		director.construct();
-		Farm superFarm = superFarmBuilder.getFarm();
-		superFarm.showFacilities();
-		System.out.println("");
+		Farm commonFarm = commonFarmBuilder.getFarm();
 
-    	Create.cow(); //åˆ›å»ºå¥¶ç‰›
-    	Create.grass(superFarm); //åˆ›å»ºç‰§è‰
-    	Create.bamboo(superFarm); //åˆ›å»ºç«¹å­
-    	Create.rhizomy();  //åˆ›å»ºç«¹é¼ 
+    	Create.cow(); //´´½¨ÄÌÅ£
+    	Create.grass(commonFarm); //´´½¨ÄÁ²İ
+    	Create.bamboo(commonFarm); //´´½¨Öñ×Ó
+    	Create.rhizomy();  //´´½¨ÖñÊó
     	
 	}
-//public static void main() {TestAbstractAnimalFactory a = null; a.test();}  //æµ‹è¯•ä¸»å‡½æ•°
+//public static void main() {TestAbstractAnimalFactory a = null; a.test();}  //²âÊÔÖ÷º¯Êı
 }

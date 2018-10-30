@@ -11,20 +11,16 @@ public class FacadeDemo {
 	public static void main(String[] args)
 	{
 		Director director = new Director();
-		SuperFarmBuilder superFarmBuilder = new SuperFarmBuilder();
 		CommonFarmBuilder commonFarmBuilder = new CommonFarmBuilder();
-
-		director.setFarmBuilder(superFarmBuilder);
+		director.setFarmBuilder(commonFarmBuilder);
 		director.construct();
-		Farm superFarm = superFarmBuilder.getFarm();
-		superFarm.showFacilities();
-		System.out.println("");
+		Farm commonFarm = commonFarmBuilder.getFarm();
 		
 		Facade facade = new Facade();
 		
-		facade.printPlantNum(superFarm);
-		facade.printBambNum(superFarm);
-		facade.printGrassNum(superFarm);
+		facade.printPlantNum(commonFarm);
+		facade.printBambNum(commonFarm);
+		facade.printGrassNum(commonFarm);
 	}
 
 }

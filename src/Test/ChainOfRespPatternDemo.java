@@ -20,17 +20,13 @@ public class ChainOfRespPatternDemo
 		 grasshouse.increase(3);
 		 
 		 Director director = new Director();
-		 SuperFarmBuilder superFarmBuilder = new SuperFarmBuilder();
-		 CommonFarmBuilder commonFarmBuilder = new CommonFarmBuilder();
-
-		 director.setFarmBuilder(superFarmBuilder);
-		 director.construct();
-		 Farm superFarm = superFarmBuilder.getFarm();
-		 superFarm.showFacilities();
-		 System.out.println("");
+			CommonFarmBuilder commonFarmBuilder = new CommonFarmBuilder();
+			director.setFarmBuilder(commonFarmBuilder);
+			director.construct();
+			Farm commonFarm = commonFarmBuilder.getFarm();
 		 
-		 bamboohouse.checkFeedable(superFarm.getBigFarmLand().getFarmLand("Bamboo Farmland"));
-		 grasshouse.checkFeedable(superFarm.getBigFarmLand().getFarmLand("Grass Farmland"));
+		 bamboohouse.checkFeedable(commonFarm.getBigFarmLand().getFarmLand("Bamboo Farmland"));
+		 grasshouse.checkFeedable(commonFarm.getBigFarmLand().getFarmLand("Grass Farmland"));
 		  
 	 }
 	 
