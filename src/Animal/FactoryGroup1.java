@@ -26,5 +26,5 @@ public class FactoryGroup1 implements LivingsFactory {
 	public Animal createAnimal() {
 		return new Cow();
 	}
-	//这是第一个产品族的具体工厂，用来生产牧草和奶牛，具体工厂能够生产动物和植物两类产品，采用FactoryMethodm模式。
+	//This is the first concrete factory producing grosses and cows. A concrete factory can produce two kinds of products as animal and plant here. Factory method is used here as well.
 }
