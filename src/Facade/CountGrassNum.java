@@ -5,6 +5,7 @@ import Building.FarmLand;
 import StoreHouse.BambooStore;
 import StoreHouse.GrassStore;
 
+//Count the number of grasses
 public class CountGrassNum implements Statistics{
 	
 	private int sum = 0;	

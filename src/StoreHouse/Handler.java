@@ -4,18 +4,20 @@ public abstract class Handler {
 
 	 private Handler nextHandler = null;
 	 
-	 public final boolean  handMessage()//����ɹ�����true 
+	 //handMessage()->getFood()istrue->return true
+	 //                          false->goto next  (no next ->return false        
+	 public final boolean handMessage()//this is a chain
 	 {
-		 if(this.getFood())
+		 if(this.getFood())//check a Handler  
 		 {
 			 return true;
 		 }
-			// �л�����һ���ڵ㴦��
-		 else{
+			
+		 else{//if this handler getfood is false ,goto next
 			 if (nextHandler != null) {
 	                return nextHandler.handMessage();
 	            } else {
-	                // û���ʵ��Ĵ����ߣ�ҵ�����д���
+	                
 	            	return false;
 	            }
 			}
@@ -25,6 +27,6 @@ public abstract class Handler {
 	        this.nextHandler = handler;
 	    }
 	 
-	 public abstract boolean getFood() ;
+	 public abstract boolean getFood() ;//There is a difference between Handler
 	 
 }

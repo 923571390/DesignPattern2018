@@ -1,9 +1,11 @@
 package Facade;
 
 import Building.Farm;
+
 import StoreHouse.BambooStore;
 import StoreHouse.GrassStore;
 
+//Count the number of bamboo
 public class CountBambNum implements Statistics{
 	private int sum = 0;	
 	@Override

@@ -21,7 +21,7 @@ public abstract class StoreHouse extends ConcreteFacility
 		 return this.sum;
 	 }
 	 
-	 public int increase(int count)
+	 public int increase(int count)//Increase inventory
 	 {
 		 this.sum+=count;
 		 System.out.println("Stock in the storehouse has increased");
@@ -29,7 +29,7 @@ public abstract class StoreHouse extends ConcreteFacility
 		 return this.sum;
 	 }
 	 
-	 public boolean decrease(int count){
+	 public boolean decrease(int count){//decrease inventory
 		 if(count>sum)return false;
 		 this.sum-=count;
 		 System.out.println("Stock in the storehouse has decreased");

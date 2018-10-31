@@ -21,7 +21,7 @@ public class GrassStore extends StoreHouse{
 
 	  
    @Override
-	public boolean checkFeedable(FarmLand land) {
+	public boolean checkFeedable(FarmLand land) {//the same as Bamboohouse
 		Handler storeFeed = new StoreHandler(instance);
 		Handler landFeed = new LandHandler(land);
 		

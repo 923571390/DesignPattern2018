@@ -2,6 +2,7 @@ package Facade;
 
 import Building.Farm;
 
+//Encapsulate the subsystem
 public class Facade {
 	
 	private Statistics countPlantNum;

@@ -6,10 +6,10 @@ public class StoreHandler extends Handler
 
 	@Override
 	public boolean getFood() {
-		if (this.storeHouse.getSum()>0)
+		if (this.storeHouse.getSum()>0)//storehouse (all mature) try to get one
 		{
 			 System.out.println("Take food from the storehouse");
-			 this.storeHouse.decrease(1);
+			 this.storeHouse.decrease(1);//getit!
 			return true;
 		}
 		

@@ -12,7 +12,7 @@ public class Intendant extends Person{
 	{
 		this.name=employeename;
 	}
-	public Person add(Person person){
+	public Person add(Person person){//Now this Intendant has a subordinate
 		subordinateList.add(person);
 		return this;
 	}

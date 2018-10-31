@@ -14,11 +14,11 @@ public class LandHandler extends Handler
 	@Override
 	public boolean getFood() {
 		
-		 for (Entity plant : this.land.getEntities()) 
+		 for (Entity plant : this.land.getEntities()) //get plants in land
 	      {
-	         if(((Plant) plant).mature()==true)
+	         if(((Plant) plant).mature()==true)//if plant is muture
 	         {
-	        	 this.land.removeEntity(plant);
+	        	 this.land.removeEntity(plant);//getit
 	        	 System.out.println("Take food from the land");
 	        	 return true;
 	         }
