@@ -3,7 +3,7 @@ import Base.Entity;
 import Building.Farm;
 import Fertilizer.FertilizerForPlant;
 public abstract class Plant extends Entity {
-	
+	//This is the abstract product class plant
 	private FertilizerForPlant fertilizer;
 	private String type;
 	
