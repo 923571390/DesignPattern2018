@@ -2,7 +2,7 @@ package StoreHouse;
 
 public abstract class Handler {
 
-	 private Handler nextHandler;
+	 private Handler nextHandler = null;
 	 
 	 public final boolean  handMessage()
 	 {

@@ -19,11 +19,11 @@ public class ChainOfRespPatternDemo
 		 bamboohouse.increase(2);
 		 grasshouse.increase(3);
 		 
-		 Director director = new Director();
-			CommonFarmBuilder commonFarmBuilder = new CommonFarmBuilder();
-			director.setFarmBuilder(commonFarmBuilder);
-			director.construct();
-			Farm commonFarm = commonFarmBuilder.getFarm();
+		Director director = new Director();
+		CommonFarmBuilder commonFarmBuilder = new CommonFarmBuilder();
+		director.setFarmBuilder(commonFarmBuilder);
+		director.construct();
+		Farm commonFarm = commonFarmBuilder.getFarm();
 		 
 		 bamboohouse.checkFeedable(commonFarm.getBigFarmLand().getFarmLand("Bamboo Farmland"));
 		 grasshouse.checkFeedable(commonFarm.getBigFarmLand().getFarmLand("Grass Farmland"));
