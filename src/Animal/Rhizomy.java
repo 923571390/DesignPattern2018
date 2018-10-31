@@ -8,6 +8,7 @@ public class Rhizomy extends Animal{
 		System.out.println("Rhizomy is created!");
 		farm.getRhizomysHouse().addEntity(this);
 	}
+	//to create a rhizomy
 
 	@Override
 	public void update() {
