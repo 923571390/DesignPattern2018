@@ -25,5 +25,5 @@ public class FactoryGroup2 implements LivingsFactory {
 	public Animal createAnimal() {
 		return new Rhizomy();
 	}
-	//这是第二个产品族的具体工厂，用来生产竹鼠和竹子
+		//This is the first concrete factory producing bamboos and rhizomys. A concrete factory can produce two kinds of products as animal and plant here. Factory method is used here as well.
 }
