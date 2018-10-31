@@ -10,7 +10,7 @@ import StoreHouse.GrassStore;
 import StoreHouse.StoreHouse;
 
 public class Feeder extends Mediator{
-
+	//The Feeder can be seem as the  concrete mediator here
 	public StoreHouse whatToEat(House animalhouse) {
 		if (animalhouse.getName() == "Cowshed" ) return GrassStore.getInstance();
 		else if (animalhouse.getName() == "Rhizomys House") return BambooStore.getInstance();
@@ -19,7 +19,8 @@ public class Feeder extends Mediator{
 
 	@Override
 	public void feed(House animalhouse, Farm farm) {
-		StoreHouse storage = whatToEat(animalhouse); //找到动物对应的仓库
+		StoreHouse storage = whatToEat(animalhouse); 
+		//to find the corresponding storage
 		if (storage.getName()=="Bamboo Store") {
 			System.out.println("Feeding bamboo to rhizomy.");
 			Iterator iter = animalhouse.getEntities().iterator();
@@ -27,7 +28,9 @@ public class Feeder extends Mediator{
 				Animal animal = (Animal) iter.next();
 				if (!animal.isFull()) {
 					if (storage.checkFeedable(farm.getBigFarmLand().getFarmLand("Bamboo Farmland"))) {
-						animal.feed();  //喂食
+						animal.feed();
+						//feed the animal
+						
 					}
 					else {
 						break;
@@ -45,7 +48,7 @@ public class Feeder extends Mediator{
 				Animal animal = (Animal) iter.next();
 				if (!animal.isFull()) {
 					if (storage.checkFeedable(farm.getBigFarmLand().getFarmLand("Grass Farmland"))) {
-						animal.feed();  //喂食
+						animal.feed();  //feed the animal
 					}
 					else {
 						break;
@@ -60,4 +63,4 @@ public class Feeder extends Mediator{
 	}
 
 
-}//喂食器
+}
