@@ -23,7 +23,6 @@ public class Bamboo extends Plant{
 	public void create(Farm farm) {
 		
 		FarmLand farmLand = farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
-		// TODO Auto-generated method stub
 		setType("bamboo");
 		System.out.println("Bamboo is created.");
 		this.farmLand=farmLand;
@@ -32,40 +31,34 @@ public class Bamboo extends Plant{
 
 	@Override
 	public void remove() {
-		// TODO Auto-generated method stub
-		//闁告帞濞�濞呭海绮╅悷鎵憤闁革缚鍗抽崳閿嬫交濞嗘劧绱╃紒鏃傛嚀閻★拷
+		//閸掔娀娅庣粩鐟扮摍閸︿即鍣锋潻娆愶紩缁旂懓鐡�
 	}
 
 	@Override
 	public void water() {
-		// TODO Auto-generated method stub
 		isWet = true;
-		if(isFertilized=true) maturate();
-		System.out.println("This bamboo has been irrigated");
+		if(isFertilized == true) maturate();
+		System.out.println("Bamboo is watered.");
 	}
 
 	@Override
 	public void ill() {
-		// TODO Auto-generated method stub
 		isHealth = false;
 	}
 
 	@Override
 	public void heal() {
-		// TODO Auto-generated method stub
 		isHealth = true;
 	}
-    //闁稿繗娓圭紞瀣瑜嶉幖褏鐚鹃懡銈庝紦閻庢冻鎷�
+    //閸忚渹缍嬫禍褍鎼х猾鑽ゎ伓鐎涳拷
 
 	@Override
 	public void fertilize() {
-		// TODO Auto-generated method stub
 		isFertilized = true;
-		if(isWet=true) maturate();
+		if(isWet == true) maturate();
 	}
 	
 	private void maturate() {
-		// TODO Auto-generated method stub
 		isMature = true;
 	}
 	

@@ -5,15 +5,12 @@ import Building.BigFarmLand;
 import Building.ConcreteFacility;
 import Building.FarmLand;
 
-//import Action.VisitorAction;
-//import Base.Acceptor;
 
 public abstract class StoreHouse extends ConcreteFacility 
 {
 
 	 public StoreHouse(String name, int capacity) {
 		super(name, capacity);
-		// TODO Auto-generated constructor stub
 	}
 
 	private Integer sum=0;

@@ -5,14 +5,12 @@ import Building.Farm;
 public class Cow extends Animal{
 	
 	public void create(Farm farm) {
-		// TODO Auto-generated method stub
-		System.out.println("获得奶牛！");
+		System.out.println("Cow is created!");
 		farm.getCowshed().addEntity(this);
 	}
 
 	@Override
 	public void update() {
-		// TODO Auto-generated method stub
 		
 	}
 }

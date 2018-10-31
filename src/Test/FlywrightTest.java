@@ -1,7 +1,7 @@
 package Test;
 
-import Base.BigFarmLand;
-import Base.FarmLand;
+import Building.BigFarmLand;
+import Building.FarmLand;
 
 public class FlywrightTest {
 	public static void main(String[] args) {

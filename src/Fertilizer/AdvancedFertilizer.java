@@ -1,5 +1,6 @@
 package Fertilizer;
 
+import Enum.FertilizerType;
 import Plant.Plant;
 
 public class AdvancedFertilizer extends FertilizerForPlant{
@@ -29,7 +30,7 @@ public class AdvancedFertilizer extends FertilizerForPlant{
 	}
 	@Override
 	public void fertilizing(Plant plant) {
-                plant.fertilize();
+        plant.fertilize();
 		System.out.println(plant.getType() + " have used advanced fertilizer.");
 	}
 	

@@ -1,5 +1,6 @@
 package Fertilizer;
 
+import Enum.FertilizerType;
 import Plant.Plant;
 
 public class CommonFertilizer extends FertilizerForPlant{

@@ -46,11 +46,9 @@ public class FarmLand extends ConcreteFacility implements Acceptor {
 
 	@Override
 	public void runAction(VisitorAction visitor) {
-		// TODO Auto-generated method stub
 		try {
 			visitor.visit(this);
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -58,12 +56,20 @@ public class FarmLand extends ConcreteFacility implements Acceptor {
 	public boolean checkHumidity() {
 		Iterator iter = entities.iterator();
 		while(iter.hasNext()) {
-			if(((Plant) iter).wet()) {
+			Plant plant = (Plant) iter.next();
+			if(!plant.wet()) {
 				System.out.println("Humidity has not been satisfactory!");
 				return false;
 			}
 		}
-		System.out.println("Humidity has been satisfactory!");
+		
+		if (entities.size()<1) {
+			System.out.println("There is no plant in the field at all!");
+		}
+		else {
+			System.out.println("Humidity has been satisfactory!");
+		}
+		
 		return true;
 	}
 

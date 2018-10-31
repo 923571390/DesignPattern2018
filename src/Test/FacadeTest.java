@@ -6,7 +6,7 @@ import Base.SuperFarmBuilder;
 import Building.Farm;
 import Facade.Facade;
 
-public class FacadeDemo {
+public class FacadeTest {
 
 	public static void main(String[] args)
 	{

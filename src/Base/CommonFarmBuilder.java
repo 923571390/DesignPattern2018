@@ -12,9 +12,6 @@ public class CommonFarmBuilder extends FarmBuilder {
 		farm = new Farm("CommonFarm");
 	}
 
-	/**
-	 * 为锟斤拷通农锟斤拷锟斤拷锟斤拷锟绞�
-	 */
 	@Override
 	public void buildFacilities() {
 		farm.setRhizomysHouse(new House<Rhizomy>("Rhizomys House", 50));

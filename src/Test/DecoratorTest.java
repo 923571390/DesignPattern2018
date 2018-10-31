@@ -1,14 +1,14 @@
 package Test;
 
-import AbAnimalstractFactory.Rhizomy;
+import Animal.Rhizomy;
 import Base.CommonFarmBuilder;
 import Base.Director;
-import Base.Facility;
-import Base.Farm;
-import Base.FarmLand;
-import Base.Fence;
-import Base.House;
-import Base.WhiteWall;
+import Building.Facility;
+import Building.Farm;
+import Building.FarmLand;
+import Building.Fence;
+import Building.House;
+import Building.WhiteWall;
 
 public class DecoratorTest {
 	public static void main(String[] args) {

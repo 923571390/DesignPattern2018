@@ -1,5 +1,7 @@
 package Test;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.Scanner;
 
 import Action.HarvestAction;
@@ -9,6 +11,7 @@ import Animal.Create;
 import Animal.Rhizomy;
 import Base.CommonFarmBuilder;
 import Base.Director;
+import Base.Entity;
 import Base.FarmBuilder;
 import Base.SuperFarmBuilder;
 import Building.Facility;
@@ -16,11 +19,12 @@ import Building.Farm;
 import Building.FarmLand;
 import Building.WhiteWall;
 import Building.YellowWall;
+import Enum.FertilizerType;
 import Facade.Facade;
 import Fertilizer.AdvancedFertilizer;
 import Fertilizer.CommonFertilizer;
 import Fertilizer.FertilizerForPlant;
-import Fertilizer.FertilizerType;
+
 import LawnMower.Adapter220V;
 import LawnMower.ImportedLawnMower;
 import LawnMower.PowerPort220V;
@@ -40,7 +44,7 @@ import UndoAndRedo.CommandManager;
 import UndoAndRedo.CutCommand;
 import UndoAndRedo.InsertCommand;
 
-public class TestTotal {
+public class MainTest {
 
 	private static final String Bamboo = null;
 
@@ -71,6 +75,8 @@ public class TestTotal {
 		System.out.println("Your farm now have these facilities:");
 		farm.showFacilities();
 		
+		System.out.println("");
+		
 		// test composite
 		Intendant host = new Intendant("Host");
 		Intendant managingani = new Intendant("Managing animals");
@@ -79,6 +85,10 @@ public class TestTotal {
 		host.add(managingpla);
 		managingani.add(new Employee("Farmer1"));
 		managingpla.add(new Employee("Farmer2"));
+		
+		host.printList();
+		
+		System.out.println("");
 
 		//test decorator
 		System.out.println("\nNow you can decorate the Rhizomys House:\n" + "1.paint the wall white\n"
@@ -91,6 +101,8 @@ public class TestTotal {
 			Facility yellowRhizomysHouse = new YellowWall(farm.getRhizomysHouse());
 			yellowRhizomysHouse.getDescription();
 		}
+		
+		System.out.println("");
 		
 		//test strategy
 		System.out.println("\nWhen you sale your products, you have three strategies:");
@@ -108,9 +120,10 @@ public class TestTotal {
 		purchase = new Purchase(new PurchaseStrategyC());
 		purchase.doPurchaseStrategy();
 		
+		System.out.println("");
 		
 		System.out.println("Now we want to go to shop for shopping. Let's prepare our shoppinglist");
-		
+
 		//test command and memento
 		CommandManager commandManager = new CommandManager();
 		System.out.println("We want to buy one bamboo and one seed.");
@@ -122,6 +135,8 @@ public class TestTotal {
 		commandManager.undo();
 		System.out.println("We regret again.");
 		commandManager.redo();
+		
+		System.out.println("");
 		
 		// test Factory Method & Abstract Factory
 		System.out.println("Let's buy some animals and plant now!");
@@ -169,6 +184,12 @@ public class TestTotal {
 	    	} 
 		}
 		
+		System.out.println("");
+
+//		//have created grass and bamboo
+//		Plant bamboo = Create.bamboo(farm);
+//		Plant grass = Create.grass(farm);
+		
 		// test Visitor & Observer
 		System.out.println("Let's water that bamboo~");
 		WaterAction visitor = new WaterAction();
@@ -179,14 +200,13 @@ public class TestTotal {
 		
 		System.out.println("How about grass?");
 		FarmLand grassLand = farm.getBigFarmLand().getFarmLand("Grass Farmland");
-		grassLand.checkHumidity();
-		System.out.println("Looks like we have to water the lawn as well.");
-		grassLand.runAction(visitor);
+		if(!grassLand.checkHumidity()) {
+			System.out.println("Looks like we have to water the lawn as well.");
+			grassLand.runAction(visitor);
+		}
 		
-		//have created grass and bamboo
-		Plant bamboo = Create.bamboo(farm);
-		Plant grass = Create.grass(farm);
-		
+		System.out.println("");
+
 		//test prototype and bridge
 		System.out.println("We have to fertilize the plant");
 		//register in prototype
@@ -197,12 +217,53 @@ public class TestTotal {
 		FertilizerForPlant f1 = FertilizerForPlant.findAndClone(FertilizerType.COMMON);
 		FertilizerForPlant f2 = FertilizerForPlant.findAndClone(FertilizerType.ADVANCED);
 
-		
+		System.out.println("");
+
 		//test bridge
-		f1.fertilizing(grass);
-		f1.fertilizing(bamboo);
-		f2.fertilizing(bamboo);
+		while(true) {
+			System.out.println("How many bamboos do you want to use advanced fertilize?");
+			Scanner inbamNum=new Scanner(System.in);
+			int bamFertNum = inbamNum.nextInt();
+			
+			int n1 = 0;
+			ArrayList<Entity> bamEntities = farm.getBigFarmLand().getFarmLand("Bamboo Farmland").getEntities();
+			
+			if(bamFertNum > bamEntities.size()) {
+				System.out.println("We don't have that much bamboo at all!");
+				continue;
+			}
+			
+			Iterator iter = bamEntities.iterator();
+			while(iter.hasNext() && n1 < bamFertNum) {
+				++n1;
+				f2.fertilizing((Plant)iter.next());
+			}
+			break;
+		}
 		
+		while(true) {
+			System.out.println("How many grass do you want to use common fertilize?");
+			Scanner ingrasNum=new Scanner(System.in);
+			int grasFertNum = ingrasNum.nextInt();
+			int n2 = 0;
+			ArrayList<Entity> grasEntities = farm.getBigFarmLand().getFarmLand("Grass Farmland").getEntities();
+			
+			if(grasFertNum > grasEntities.size()) {
+				System.out.println("We don't have that much grass at all!");
+				continue;
+			}
+			
+			Iterator iter1 = grasEntities.iterator();
+			while(iter1.hasNext() && n2 < grasFertNum) {
+				++n2;
+				f1.fertilizing((Plant) iter1.next());
+			}
+			break;
+		}
+		
+		
+		System.out.println("");
+
 		// test Facade
 		Facade facade = new Facade();
 		quit = false;
@@ -232,24 +293,26 @@ public class TestTotal {
 	    	} 
 		}
 		
+		System.out.println("");
+
 		// test Visitor again
 		System.out.println("Now that some crops are ripe, let's harvest them.");
 		HarvestAction harvestVisitor = new HarvestAction();
 		GrassStore grassStore = GrassStore.getInstance();
 		BambooStore bambooStore = BambooStore.getInstance();
 		
-		bambooStore.printSum();
 		bambooLand.runAction(harvestVisitor);
 		bambooStore.printSum();
 		
-		grassStore.printSum();
 		grassLand.runAction(harvestVisitor);
 		grassStore.printSum();
 		
-		// test Mediator & Chain Of Responsibility & State (浠撳簱鍑忓皯搴旇浼氭湁鎵撳嵃锛�)
+		System.out.println("");
+
+		// test Mediator & Chain Of Responsibility & State (仓库减少应该会有打印！)
 		System.out.println("The animals are hungry too. We should feed them right away.");
-		System.out.println("Ops! Some animals are sick!");
 		if(farm.getCowshed().getEntitiesNum() > 0) {
+			System.out.println("Ops! Some animals are sick!");
 			Cow cow = (Cow) farm.getCowshed().getEntities().get(0);
 			cow.ill();
 			farm.getCowshed().feedAnimals(farm);
@@ -259,13 +322,14 @@ public class TestTotal {
 		}
 		
 		if(farm.getRhizomysHouse().getEntitiesNum() > 0) {
-			((Rhizomy) farm.getRhizomysHouse().getEntities().get(0)).ill();
 			farm.getRhizomysHouse().feedAnimals(farm);
 		}
 		else {
-			System.out.println("There is no Phizomy in the Rhizomy house.");
+			System.out.println("There is no Rhizomy in the Rhizomy house.");
 		}		
 		
+		System.out.println("");
+
 		// test proxy
 		System.out.println("Let's test the security system of our new farm.");
 		StoreHouseGuardian guardian = new StoreHouseGuardian("guardian", 0);
@@ -273,6 +337,8 @@ public class TestTotal {
 				
 		guardian.checkFeedable(farm.getBigFarmLand().getFarmLand("Bamboo Farmland"));
 				
+		System.out.println("");
+
 		// test adapter
 		System.out.println("There are too many weeds on the new farm!");
 				
@@ -285,6 +351,9 @@ public class TestTotal {
 		Adapter220V adapter = new Adapter220V();
 		lawnMower.charge110V((adapter.Convert220vTo110V()));
 		
+		System.out.println("");
+		
+		// end
 		System.out.println("Today is too fulfilling, take a rest early!");
 		
 	}

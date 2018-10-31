@@ -1,7 +1,9 @@
-package PersonnelDepartment;
+package Test;
 
+import PersonnelDepartment.Employee;
+import PersonnelDepartment.Intendant;
 
-public class CompositePatternDemo {
+public class CompositeTest {
 	
 	 public static void main(String[] args)
 	 {
@@ -18,5 +20,4 @@ public class CompositePatternDemo {
 		 host.printList();
 		 
 	 }
-
 }

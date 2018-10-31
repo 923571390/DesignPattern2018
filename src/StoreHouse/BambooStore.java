@@ -7,7 +7,6 @@ public class BambooStore extends StoreHouse{
 
 	private BambooStore(String name, int capacity) {
 		super(name, capacity);
-		// TODO Auto-generated constructor stub
 	}
 
 
@@ -16,25 +15,25 @@ public class BambooStore extends StoreHouse{
 	 
 	 
 	   
-	   public static BambooStore getInstance(){
-	      return instance;
-	   }
+   public static BambooStore getInstance(){
+      return instance;
+   }
 
-	
 
-	   @Override
-		public boolean checkFeedable(FarmLand land) {
-			Handler storeFeed = new StoreHandler(instance);
-			Handler landFeed = new LandHandler(land);
-			
-			storeFeed.setNext(landFeed);
-			
-			if(storeFeed.handMessage())
-			{
-				return true;
-			}
+
+   @Override
+	public boolean checkFeedable(FarmLand land) {
+		Handler storeFeed = new StoreHandler(instance);
+		Handler landFeed = new LandHandler(land);
+		
+		storeFeed.setNext(landFeed);
+		
+		if(storeFeed.handMessage())
+		{
+			return true;
+		}
 		System.out.println("Rhizomyidae have no bamboo to eat.");
 		return false;
-	}
+   }
 	 
 }

@@ -1,7 +1,6 @@
 package Base;
 
 public class Director {
-	// ����ũ����Builder��������SuoerFarmBuilder��CommonFarmBuilder
 	private FarmBuilder farmBuilder;
 
 	public void setFarmBuilder(FarmBuilder farmBuilder) {
@@ -11,7 +10,7 @@ public class Director {
 	/**
 	 * 
 	 * @Title: construct
-	 * @Description: ʹ�þ����Builder����ũ��
+	 * @Description: Builder
 	 * @param
 	 * @return void
 	 */

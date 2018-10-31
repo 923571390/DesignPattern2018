@@ -3,7 +3,7 @@ package Building;
 public interface Facility {
 	/**
 	 * @Title: getDescription
-	 * @Description: ������ʩ
+	 * @Description: 
 	 * @param
 	 * @return void
 	 */

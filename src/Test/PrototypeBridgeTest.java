@@ -1,9 +1,9 @@
 package Test;
 
+import Enum.FertilizerType;
 import Fertilizer.AdvancedFertilizer;
 import Fertilizer.CommonFertilizer;
 import Fertilizer.FertilizerForPlant;
-import Fertilizer.FertilizerType;
 import Plant.Bamboo;
 import Plant.Grass;
 import Plant.Plant;
@@ -11,7 +11,7 @@ import UndoAndRedo.CommandManager;
 import UndoAndRedo.CutCommand;
 import UndoAndRedo.InsertCommand;
 
-public class TestProject {
+public class PrototypeBridgeTest {
 	public static void main(String[] args) {
 		Plant bamboo = new Bamboo();
 		Plant grass = new Grass();
@@ -32,15 +32,5 @@ public class TestProject {
 		f2.fertilizing(grass);
 		f3.fertilizing(bamboo);
 		f4.fertilizing(grass);
-		
-		//test command
-		CommandManager commandManager = new CommandManager();
-		commandManager.executeCommand(new InsertCommand("bamboo"));
-		commandManager.executeCommand(new InsertCommand("seed"));
-		commandManager.executeCommand(new CutCommand());
-		commandManager.undo();
-        commandManager.undo();
-        commandManager.redo();
-        commandManager.redo();
     }
 }

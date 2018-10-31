@@ -10,7 +10,6 @@ public class StoreHouseGuardian extends StoreHouse {
 	
 	public StoreHouseGuardian(String name, int capacity) {
 		super(name, capacity);
-		// TODO Auto-generated constructor stub
 	}
 
 	private BambooStore store = BambooStore.getInstance();
@@ -18,8 +17,6 @@ public class StoreHouseGuardian extends StoreHouse {
 
 	
 	public void setAlarm() {
-//		System.out.println("The farm is currently on alert.");
-
 		this.alarm = !this.alarm;
 	}
 	
@@ -29,7 +26,6 @@ public class StoreHouseGuardian extends StoreHouse {
 
 	@Override
 	public boolean checkFeedable(FarmLand land) {
-		// TODO Auto-generated method stub
 		if(preCheck()) {
 			return store.checkFeedable(land);
 		}

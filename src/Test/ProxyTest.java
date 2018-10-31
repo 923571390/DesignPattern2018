@@ -9,7 +9,6 @@ import SecurityGuard.StoreHouseGuardian;
 public class ProxyTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		StoreHouseGuardian guardian = new StoreHouseGuardian("guardian", 0);
 		guardian.setAlarm();
 		

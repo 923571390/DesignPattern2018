@@ -11,6 +11,7 @@ public class StrategyTest {
 		StrategyTest test = new StrategyTest();
 		test.testStrategy();
 	}
+	
 	public void testStrategy() {
 		Purchase purchase;
 

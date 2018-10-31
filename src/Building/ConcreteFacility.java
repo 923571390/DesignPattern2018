@@ -7,7 +7,7 @@ import Feeder.Mediator;
 public abstract class ConcreteFacility implements Facility {
 
 	protected String name;
-	// capacity����
+	// capacity
 	private int capacity;
 
 	protected ArrayList<Entity> entities;
@@ -16,9 +16,9 @@ public abstract class ConcreteFacility implements Facility {
 
 	/**
 	 *
-	 * @param name     ���������ʩ����
+	 * @param name     
 	 *
-	 * @param capacity ����
+	 * @param capacity 
 	 */
 	public ConcreteFacility(String name, int capacity) {
 		this.name = name;
@@ -27,7 +27,7 @@ public abstract class ConcreteFacility implements Facility {
 	}
 
 	/**
-	 * ��ȡ��װ������װ����װ�κ�ı�װ���ߵ�����
+	 * 
 	 */
 	@Override
 	public void getDescription() {
@@ -44,7 +44,7 @@ public abstract class ConcreteFacility implements Facility {
 
 	public void addEntity(Entity entity) {
 		if (isFull()) {
-			System.out.println("�������㣡");
+			System.out.println("The building can not hold anymore.");
 		} else {
 			entities.add(entity);
 		}
@@ -56,7 +56,7 @@ public abstract class ConcreteFacility implements Facility {
 
 	public void removeEntity(Entity entity) {
 		if (!entities.remove(entity)) {
-			System.out.println("Ŀ�겻���ڣ��Ƴ�ʧ�ܣ�");
+			System.out.println("Remove denied.");
 		}
 	}
 

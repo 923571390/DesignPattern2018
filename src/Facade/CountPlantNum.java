@@ -20,14 +20,10 @@ public class CountPlantNum implements Statistics{
 		this.sum += grassStore.getSum();
 		
 		Building.FarmLand bambooFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
-		Building.FarmLand grassFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
+		Building.FarmLand grassFarm =farm.getBigFarmLand().getFarmLand("Grass Farmland");
 		this.sum += bambooFarm.getEntitiesNum();
 		this.sum += grassFarm.getEntitiesNum();
-		
-		
-		
-		//need a method to get the number of plant
-		
+				
 		return this.sum;
 		
 	}

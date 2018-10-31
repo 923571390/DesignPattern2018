@@ -8,7 +8,6 @@ public class Employee extends Person{
 	public Employee(String employeename)
 	{
 		this.name=employeename;
-		System.out.println("There is a farmer:"+this.name+" in the farm");
 	}
 	
 

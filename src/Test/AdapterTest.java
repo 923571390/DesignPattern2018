@@ -3,10 +3,9 @@ import LawnMower.Adapter220V;
 import LawnMower.ImportedLawnMower;
 import LawnMower.PowerPort220V;
 
-public class Adapter {
+public class AdapterTest {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 		Adapter220V adapter = new Adapter220V();
 		ImportedLawnMower lawnMower = new ImportedLawnMower();
 		PowerPort220V powerport = new PowerPort220V();

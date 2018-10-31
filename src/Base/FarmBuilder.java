@@ -9,7 +9,7 @@ public abstract class FarmBuilder {
 	/**
 	 * 
 	 * @Title: buildFacilities
-	 * @Description: Ϊũ�������ʩ����ͬ������builder�в�ͬ�ķ�ʽ
+	 * @Description: 
 	 * @param
 	 * @return void
 	 */

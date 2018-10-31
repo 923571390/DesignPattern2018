@@ -1,5 +1,6 @@
 package Fertilizer;
 
+import Enum.FertilizerType;
 import Plant.Plant;
 
 //Abstraction of fertilizer for plant(use Prototype pattern)

@@ -14,11 +14,11 @@ public class SuperFarmBuilder extends FarmBuilder {
 	}
 
 	/**
-	 * 为锟斤拷锟斤拷农锟斤拷锟斤拷锟斤拷锟绞�
+	 * 
 	 */
 	@Override
 	public void buildFacilities() {
-		farm.setRhizomysHouse(new House<Rhizomy>("Rhizomys House one", 50));
+		farm.setRhizomysHouse(new House<Rhizomy>("Rhizomys House", 50));
 		farm.setCowshed(new House<Cow>("Cowshed", 30));
 		farm.setPool(new Pool("Pool", 150));
 

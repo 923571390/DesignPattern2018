@@ -4,7 +4,7 @@ import Base.CommonFarmBuilder;
 import Base.Director;
 import Base.SuperFarmBuilder;
 import Building.Farm;
-public class TestAbstractAnimalFactory {
+public class AbstractFactoryFacMethodTest {
 	public static void main(String[] args) {
 		
 		Director director = new Director();
@@ -19,5 +19,4 @@ public class TestAbstractAnimalFactory {
     	Create.rhizomy(commonFarm);  //��������
     	
 	}
-//public static void main() {TestAbstractAnimalFactory a = null; a.test();}  //����������
 }
