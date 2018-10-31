@@ -205,17 +205,31 @@ public class TestTotal {
 		
 		// test Facade
 		Facade facade = new Facade();
-		System.out.println("\nYou can check the number of plants:\n"+  "1.check the number of plants"
-				+ "2.check the number of bamboo"+"3.check the number of Grass");
-		choose = input.nextInt();
-		if (choose == 1) {
-			facade.printPlantNum(farm);
-
-		} else if (choose == 2) {
-			facade.printBambNum(farm);
-		}
-		else if (choose == 3) {
-			facade.printGrassNum(farm);
+		quit = false;
+		while(!quit) {
+			System.out.println("\nYou can check the number of plants:\n"+  "A.check the number of plants"
+					+ " B.check the number of bamboo"+" C.check the number of Grass"+" Q.quit");
+			Scanner in=new Scanner(System.in);
+			String s=in.next();
+			switch(s){
+	    	case "A":
+	    		facade.printPlantNum(farm);
+	    		
+	    	    break;
+	    	case "B":
+	    		facade.printBambNum(farm);
+	    	    break;
+	    	case "C":
+	    		facade.printGrassNum(farm);
+	    	    break;
+	    	
+	    	case "Q":
+	    		quit = true;
+	    		break;
+	    	default:
+	    		System.out.println("The option you entered is invalid. Please re-enter it.");
+	    	    break;
+	    	} 
 		}
 		
 		// test Visitor again
@@ -232,7 +246,7 @@ public class TestTotal {
 		grassLand.runAction(harvestVisitor);
 		grassStore.printSum();
 		
-		// test Mediator & Chain Of Responsibility & State (仓库减少应该会有打印！)
+		// test Mediator & Chain Of Responsibility & State (浠撳簱鍑忓皯搴旇浼氭湁鎵撳嵃锛�)
 		System.out.println("The animals are hungry too. We should feed them right away.");
 		System.out.println("Ops! Some animals are sick!");
 		if(farm.getCowshed().getEntitiesNum() > 0) {

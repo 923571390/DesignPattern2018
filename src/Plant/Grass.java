@@ -38,7 +38,7 @@ public class Grass extends Plant{
 		// TODO Auto-generated method stub
 		isWet = true;
 		if(isFertilized=true) maturate();
-		System.out.println("��һ�Ųݱ�����ˮ");
+		System.out.println("This grass has been irrigated");
 	}
 	@Override
 	public void ill() {
