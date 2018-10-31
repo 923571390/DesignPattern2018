@@ -33,7 +33,7 @@ public class Bamboo extends Plant{
 	@Override
 	public void remove() {
 		// TODO Auto-generated method stub
-		//閸掔娀娅庣粩鐟扮摍閸︿即鍣锋潻娆愶紩缁旂懓鐡�
+		//闁告帞濞�濞呭海绮╅悷鎵憤闁革缚鍗抽崳閿嬫交濞嗘劧绱╃紒鏃傛嚀閻★拷
 	}
 
 	@Override
@@ -41,7 +41,7 @@ public class Bamboo extends Plant{
 		// TODO Auto-generated method stub
 		isWet = true;
 		if(isFertilized=true) maturate();
-		System.out.println("有一颗竹子被浇了水");
+		System.out.println("This bamboo has been irrigated");
 	}
 
 	@Override
@@ -55,7 +55,7 @@ public class Bamboo extends Plant{
 		// TODO Auto-generated method stub
 		isHealth = true;
 	}
-    //閸忚渹缍嬫禍褍鎼х猾鑽ゎ伓鐎涳拷
+    //闁稿繗娓圭紞瀣瑜嶉幖褏鐚鹃懡銈庝紦閻庢冻鎷�
 
 	@Override
 	public void fertilize() {

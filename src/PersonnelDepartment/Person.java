@@ -10,7 +10,7 @@ public abstract class Person {
 	 }
 	
 	public Person add(Person person){
-		throw new UnsupportedOperationException();//���δ�ṩ, ���ܵ���
+		throw new UnsupportedOperationException();
 	}
 	
 	

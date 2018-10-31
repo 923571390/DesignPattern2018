@@ -13,7 +13,7 @@ public class Feeder extends Mediator{
 
 	public StoreHouse whatToEat(House animalhouse) {
 		// TODO Auto-generated method stub
-		if (animalhouse.getName() == "Cow House" ) return GrassStore.getInstance();
+		if (animalhouse.getName() == "Cowshed" ) return GrassStore.getInstance();
 		else if (animalhouse.getName() == "Rhizomys House") return BambooStore.getInstance();
 		else return null;
 	}
@@ -41,8 +41,9 @@ public class Feeder extends Mediator{
 			Iterator iter = animalhouse.getEntities().iterator();
 			while(iter.hasNext()) {
 				if (storage.checkFeedable(farm.getBigFarmLand().getFarmLand("Grass Farmland"))) {
-					if (!((Animal) iter).isFull()) {
-						((Animal) iter).feed();  //喂食
+					Animal animal = (Animal) iter.next();
+					if (!animal.isFull()) {
+						animal.feed();  //喂食
 					}
 					else {
 						System.out.println("The animal is already full");

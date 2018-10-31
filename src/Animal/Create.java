@@ -5,11 +5,11 @@ import Plant.Plant;
 
 public class Create {
 	
-	public static Animal cow() {
+	public static Animal cow(Farm farm) {
 		
 		LivingsFactory factoryGroup1 = new FactoryGroup1();
 		Animal cow = factoryGroup1.createAnimal();
-		cow.create(); 
+		cow.create(farm); 
 		return cow;//创建奶牛	
 	}
 	
@@ -21,11 +21,11 @@ public class Create {
 		return grass;
 	}
 	
-	public static Animal rhizomy() {
+	public static Animal rhizomy(Farm farm) {
 		
 		LivingsFactory factoryGroup2 = new FactoryGroup2();	
 		Animal rhizomy = factoryGroup2.createAnimal();
-		rhizomy.create(); //创建竹鼠
+		rhizomy.create(farm); //创建竹鼠
 		return rhizomy;
 	}	
 	

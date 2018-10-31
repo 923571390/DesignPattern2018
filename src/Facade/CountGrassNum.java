@@ -13,23 +13,23 @@ public class CountGrassNum implements Statistics{
 		
 		
 		
-		BambooStore banbooStore =BambooStore.getInstance();
+		//BambooStore banbooStore =BambooStore.getInstance();
 		
 		GrassStore grassStore = GrassStore.getInstance();
 		
-		this.sum += banbooStore.getSum();
+		//this.sum += banbooStore.getSum();
 		this.sum += grassStore.getSum();
 		
-		FarmLand bambooFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
-		FarmLand grassFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
-		this.sum += bambooFarm.getEntitiesNum();
+		//FarmLand bambooFarm =farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
+		Building.FarmLand grassFarm =farm.getBigFarmLand().getFarmLand("Grass Farmland");
+		//this.sum += bambooFarm.getEntitiesNum();
 		this.sum += grassFarm.getEntitiesNum();
 		
 		
 		
 		//need a method to get the number of plant
 		
-		return sum;
+		return this.sum;
 		
 	}
 }

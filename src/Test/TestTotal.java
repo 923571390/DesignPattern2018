@@ -2,15 +2,21 @@ package Test;
 
 import java.util.Scanner;
 
+import Action.HarvestAction;
+import Action.WaterAction;
+import Animal.Cow;
 import Animal.Create;
+import Animal.Rhizomy;
 import Base.CommonFarmBuilder;
 import Base.Director;
 import Base.FarmBuilder;
 import Base.SuperFarmBuilder;
 import Building.Facility;
 import Building.Farm;
+import Building.FarmLand;
 import Building.WhiteWall;
 import Building.YellowWall;
+import Facade.Facade;
 import Fertilizer.AdvancedFertilizer;
 import Fertilizer.CommonFertilizer;
 import Fertilizer.FertilizerForPlant;
@@ -18,10 +24,14 @@ import Fertilizer.FertilizerType;
 import LawnMower.Adapter220V;
 import LawnMower.ImportedLawnMower;
 import LawnMower.PowerPort220V;
+import PersonnelDepartment.Employee;
+import PersonnelDepartment.Intendant;
 import Plant.Bamboo;
 import Plant.Grass;
 import Plant.Plant;
 import SecurityGuard.StoreHouseGuardian;
+import StoreHouse.BambooStore;
+import StoreHouse.GrassStore;
 import Strategy.Purchase;
 import Strategy.PurchaseStrategyA;
 import Strategy.PurchaseStrategyB;
@@ -31,6 +41,8 @@ import UndoAndRedo.CutCommand;
 import UndoAndRedo.InsertCommand;
 
 public class TestTotal {
+
+	private static final String Bamboo = null;
 
 	public static void main(String[] args) {
 		
@@ -58,6 +70,15 @@ public class TestTotal {
 		farm = farmBuilder.getFarm();
 		System.out.println("Your farm now have these facilities:");
 		farm.showFacilities();
+		
+		// test composite
+		Intendant host = new Intendant("Host");
+		Intendant managingani = new Intendant("Managing animals");
+		Intendant managingpla = new Intendant("Managing plants");
+		host.add(managingani); 
+		host.add(managingpla);
+		managingani.add(new Employee("Farmer1"));
+		managingpla.add(new Employee("Farmer2"));
 
 		//test decorator
 		System.out.println("\nNow you can decorate the Rhizomys House:\n" + "1.paint the wall white\n"
@@ -114,10 +135,10 @@ public class TestTotal {
 	    		String s1=in.next();
 	    		switch(s1){
 	        	case "C":
-	        		if(Create.cow() != null) System.out.println("You have created a cow successfully!");
+	        		if(Create.cow(farm) != null) System.out.println("You have created a cow successfully!");
 	        	    break;
 	        	case "R":
-	        		if(Create.rhizomy() != null) System.out.println("You have created a rhizomy successfully!");
+	        		if(Create.rhizomy(farm) != null) System.out.println("You have created a rhizomy successfully!");
 	        	    break;
 	        	default:
 	        		System.out.println("The option you entered is invalid. Please re-enter it.");
@@ -129,10 +150,10 @@ public class TestTotal {
 	    		String s2=in.next();
 	    		switch(s2){
 	        	case "G":
-	        		if(Create.cow() != null) System.out.println("You have created a grass successfully!");
+	        		if(Create.grass(farm) != null) System.out.println("You have created a grass successfully!");
 	        	    break;
 	        	case "B":
-	        		if(Create.rhizomy() != null) System.out.println("You have created a bamboo successfully!");
+	        		if(Create.bamboo(farm) != null) System.out.println("You have created a bamboo successfully!");
 	        	    break;
 	        	default:
 	        		System.out.println("The option you entered is invalid. Please re-enter it.");
@@ -148,8 +169,21 @@ public class TestTotal {
 	    	} 
 		}
 		
+		// test Visitor & Observer
+		System.out.println("Let's water that bamboo~");
+		WaterAction visitor = new WaterAction();
+		FarmLand bambooLand = farm.getBigFarmLand().getFarmLand("Bamboo Farmland");
+		bambooLand.runAction(visitor);
+		System.out.println("Let's check the humidity of bamboo.");
+		bambooLand.checkHumidity();
+		
+		System.out.println("How about grass?");
+		FarmLand grassLand = farm.getBigFarmLand().getFarmLand("Grass Farmland");
+		grassLand.checkHumidity();
+		System.out.println("Looks like we have to water the lawn as well.");
+		grassLand.runAction(visitor);
+		
 		//have created grass and bamboo
-		System.out.println("we plant more.");
 		Plant bamboo = Create.bamboo(farm);
 		Plant grass = Create.grass(farm);
 		
@@ -158,16 +192,79 @@ public class TestTotal {
 		//register in prototype
 		FertilizerForPlant.addPrototype(new CommonFertilizer(1));
 		FertilizerForPlant.addPrototype(new AdvancedFertilizer(1));
-				
+		
 		//test prototype
 		FertilizerForPlant f1 = FertilizerForPlant.findAndClone(FertilizerType.COMMON);
 		FertilizerForPlant f2 = FertilizerForPlant.findAndClone(FertilizerType.ADVANCED);
 
-				
+		
 		//test bridge
 		f1.fertilizing(grass);
 		f1.fertilizing(bamboo);
 		f2.fertilizing(bamboo);
+		
+		// test Facade
+		Facade facade = new Facade();
+		quit = false;
+		while(!quit) {
+			System.out.println("\nYou can check the number of plants:\n"+  "A.check the number of plants"
+					+ " B.check the number of bamboo"+" C.check the number of Grass"+" Q.quit");
+			Scanner in=new Scanner(System.in);
+			String s=in.next();
+			switch(s){
+	    	case "A":
+	    		facade.printPlantNum(farm);
+	    		
+	    	    break;
+	    	case "B":
+	    		facade.printBambNum(farm);
+	    	    break;
+	    	case "C":
+	    		facade.printGrassNum(farm);
+	    	    break;
+	    	
+	    	case "Q":
+	    		quit = true;
+	    		break;
+	    	default:
+	    		System.out.println("The option you entered is invalid. Please re-enter it.");
+	    	    break;
+	    	} 
+		}
+		
+		// test Visitor again
+		System.out.println("Now that some crops are ripe, let's harvest them.");
+		HarvestAction harvestVisitor = new HarvestAction();
+		GrassStore grassStore = GrassStore.getInstance();
+		BambooStore bambooStore = BambooStore.getInstance();
+		
+		bambooStore.printSum();
+		bambooLand.runAction(harvestVisitor);
+		bambooStore.printSum();
+		
+		grassStore.printSum();
+		grassLand.runAction(harvestVisitor);
+		grassStore.printSum();
+		
+		// test Mediator & Chain Of Responsibility & State (浠撳簱鍑忓皯搴旇浼氭湁鎵撳嵃锛�)
+		System.out.println("The animals are hungry too. We should feed them right away.");
+		System.out.println("Ops! Some animals are sick!");
+		if(farm.getCowshed().getEntitiesNum() > 0) {
+			Cow cow = (Cow) farm.getCowshed().getEntities().get(0);
+			cow.ill();
+			farm.getCowshed().feedAnimals(farm);
+		}
+		else {
+			System.out.println("There is no cow in the cow shed.");
+		}
+		
+		if(farm.getRhizomysHouse().getEntitiesNum() > 0) {
+			((Rhizomy) farm.getRhizomysHouse().getEntities().get(0)).ill();
+			farm.getRhizomysHouse().feedAnimals(farm);
+		}
+		else {
+			System.out.println("There is no Phizomy in the Rhizomy house.");
+		}		
 		
 		// test proxy
 		System.out.println("Let's test the security system of our new farm.");
@@ -188,8 +285,8 @@ public class TestTotal {
 		Adapter220V adapter = new Adapter220V();
 		lawnMower.charge110V((adapter.Convert220vTo110V()));
 		
+		System.out.println("Today is too fulfilling, take a rest early!");
 		
-
 	}
 
 }

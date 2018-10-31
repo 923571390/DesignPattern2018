@@ -17,7 +17,7 @@ public class CommonFarmBuilder extends FarmBuilder {
 	 */
 	@Override
 	public void buildFacilities() {
-		farm.setRhizomysHouse(new House<Rhizomy>("Rhizomys House one", 50));
+		farm.setRhizomysHouse(new House<Rhizomy>("Rhizomys House", 50));
 		farm.setCowshed(new House<Cow>("Cowshed", 30));
 
 		String[] landName = { "Bamboo Farmland", "Grass Farmland" };

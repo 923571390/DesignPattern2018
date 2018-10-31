@@ -20,7 +20,7 @@ public class HarvestAction implements VisitorAction {
 	@Override
 	public void visit(StoreHouse store) throws Exception {
 		// TODO Auto-generated method stub
-		throw new Exception("不可以对仓库进行收获操作。");
+		throw new Exception("Action not allowed!");
 	}
 
 	@Override
@@ -29,9 +29,10 @@ public class HarvestAction implements VisitorAction {
 		Iterator iter = land.getEntities().iterator();
 		
 		while(iter.hasNext()) {
+//			System.out.println("harvest");
 			Plant currentPlant = (Plant) iter.next();
 			if (currentPlant.mature()) {
-				land.getEntities().remove(1);
+				iter.remove();
 				// 待改成enum 如果是竹子田地
 				if (land.getName() == "Bamboo Farmland") {
 					BambooStore store = BambooStore.getInstance();

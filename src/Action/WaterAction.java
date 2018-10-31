@@ -13,7 +13,7 @@ public class WaterAction implements VisitorAction {
 	@Override
 	public void visit(StoreHouse store) throws Exception {
 		// TODO Auto-generated method stub
-		throw new Exception("不可以对仓库进行收获操作。");
+		throw new Exception("Action not allowed!");
 	}
 
 	@Override

@@ -16,7 +16,7 @@ public class StateTest {
 		director.construct();
 		Farm commonFarm = commonFarmBuilder.getFarm();
 
-    	Animal cow = Create.cow();//鍒涘缓濂剁墰
+    	Animal cow = Create.cow(commonFarm);//鍒涘缓濂剁墰
     	Plant.Plant grass = Create.grass(commonFarm);//鍒涘缓鑽�
     	cow.isFull();  //鏄惁鍚冮ケ
     	cow.isHealthy();  //鏄惁鍋ュ悍

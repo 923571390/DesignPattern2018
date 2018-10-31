@@ -2,20 +2,20 @@ package StoreHouse;
 
 public abstract class Handler {
 
-	 private Handler nextHandler;
+	 private Handler nextHandler = null;
 	 
-	 public final boolean  handMessage()//����ɹ�����true 
+	 public final boolean  handMessage()
 	 {
 		 if(this.getFood())
 		 {
 			 return true;
 		 }
-			// �л�����һ���ڵ㴦��
+			
 		 else{
 			 if (nextHandler != null) {
 	                return nextHandler.handMessage();
 	            } else {
-	                // û���ʵ��Ĵ����ߣ�ҵ�����д���
+	                
 	            	return false;
 	            }
 			}

@@ -1,9 +1,12 @@
 package Building;
 
+import java.util.Iterator;
+
 import Action.Acceptor;
 import Action.VisitorAction;
 import Base.Entity;
 import Plant.Observer;
+import Plant.Plant;
 
 public class FarmLand extends ConcreteFacility implements Acceptor {
 
@@ -30,16 +33,16 @@ public class FarmLand extends ConcreteFacility implements Acceptor {
 	
 	 public void attach(Entity p){
 		 this.addEntity(p);
-	   }
+	 }
 	
 
 	public void notifyAllObservers()
-	  {
+	{
 	      for (Observer observer : entities) 
 	      {
 	         observer.update();
 	      }
-	  }
+	}
 
 	@Override
 	public void runAction(VisitorAction visitor) {
@@ -50,6 +53,18 @@ public class FarmLand extends ConcreteFacility implements Acceptor {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public boolean checkHumidity() {
+		Iterator iter = entities.iterator();
+		while(iter.hasNext()) {
+			if(((Plant) iter).wet()) {
+				System.out.println("Humidity has not been satisfactory!");
+				return false;
+			}
+		}
+		System.out.println("Humidity has been satisfactory!");
+		return true;
 	}
 
 }

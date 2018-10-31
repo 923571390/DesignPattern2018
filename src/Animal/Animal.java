@@ -4,6 +4,7 @@ import AnimalState.HealthyState;
 import AnimalState.State;
 import AnimalState.UnhealthyState;
 import Base.Entity;
+import Building.Farm;
 
 public abstract class Animal extends Entity{
 	
@@ -16,7 +17,6 @@ public abstract class Animal extends Entity{
 			heal();
 			full= true;
 		}
-
 	}
 	 
 	public void ill() {
@@ -33,7 +33,7 @@ public abstract class Animal extends Entity{
 		// TODO Auto-generated method stub
 		this.full= false;
 	}
-//具体产品类奶牛
+	//具体产品类奶牛
 	 
 	public boolean isFull() {
 		// TODO Auto-generated method stub
@@ -45,7 +45,7 @@ public abstract class Animal extends Entity{
 		return state.isItHealthy();
 	}
 
-	public void create() {
+	public void create(Farm farm) {
 		// TODO Auto-generated method stub
 		
 	}
