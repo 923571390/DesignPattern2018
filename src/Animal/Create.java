@@ -4,7 +4,7 @@ import Building.Farm;
 import Plant.Plant;
 
 public class Create {
-	
+	//an encapsulation of all the ways to create livings by Factory Method
 	public static Animal cow(Farm farm) {
 		
 		LivingsFactory factoryGroup1 = FactoryGroup1.getInstance();
